@@ -3,7 +3,7 @@
 from paper "Residual structural network efficiency of bilateral functional-defined brain networks correlates with working memory performance in chronic post-stroke aphasia"
 
 ### -Environment-
-  + python 3.1
+  + python 3.9
   + installed packages: numpy, scipy, pandas, sklearn, networkx
 
 ### -Ready for these files-
