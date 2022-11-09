@@ -4,15 +4,15 @@ import numpy as np
 import pandas as pd
 import networkx as nx
 import dataRead as DR
-from matplotlib import pyplot as plt
-"""
-build_network_graph.py
--- build the graph based on AAL structural parcellation
--- measure network efficiency
 
 """
-#input: NxN mat, network node list
-#output: dictionary 
+build_network_graph.py
+-- i)build the graph based on AAL structural parcellation
+-- ii)measure network efficiency
+
+"""
+#input: residual connectivity matrix (NxN mat), network node list
+#output: structural network efficiency of a functional-defined network (a number)
 def findNetworkEfficiencyAverage(adj_mat, node_list):
 	G = nx.Graph(adj_mat, nodetype=int)
 
