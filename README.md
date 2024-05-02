@@ -8,7 +8,7 @@ from paper "Beyond focal lesions: Mapping the distributed structural brain netwo
 
 ### -Ready for these files-
   + Functional-defined network: excel file including the functional-defined networks and corresponding AAL parcels (see network_AALindex.xlsx)
-  + PCA scores: excel file including all PCA factors and scores of each participant (see PCA_factors.xlsx)
+  + Behavioural scores: excel file including all tested behvaioural scores of each participant (see behaviour_Speech.xlsx)
   + Lesion volume: excel file including lesion volume of each participant (see control.xlsx)
   + All quantified outputs from Lesion Quantification Toolkit under Matlab
 
@@ -34,11 +34,11 @@ from paper "Beyond focal lesions: Mapping the distributed structural brain netwo
 ##### *After running part_corr.py, an output file saving all results (r values and p values) will be generated.
 There are 5 inputs to put in the command line: 
 + excel file with the efficiency variables (e.g. networkEfficiency.xlsx, generated from last step)
-+ excel file with the corresponding behavioural variables (e.g. PCA factors in this case)
++ excel file with the corresponding behavioural variables (e.g. speech production performance in this case)
 + excel file with control variable (e.g. lesion volume in this case)
 + output file name 
 + total number of participants
 
 ##### Example command:
-  ###### python part_corr.py networkEfficiency.xlsx pca_factors.xlsx control.xlsx output_file 36
+  ###### python part_corr.py networkEfficiency.xlsx behaviour_Speech.xlsx control.xlsx output_file 36
 
