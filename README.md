@@ -1,6 +1,6 @@
 # SNE-repo
 ## Analyses of Structural Network Efficiency
-from paper "Residual structural network efficiency of bilateral functional-defined brain networks correlates with working memory performance in chronic post-stroke aphasia"
+from paper "Beyond focal lesions: Mapping the distributed structural brain networks supporting connected speech in chronic post-stroke aphasia"
 
 ### -Environment-
   + python 3.9
