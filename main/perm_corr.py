@@ -1,36 +1,39 @@
-import os
 import sys
 import math
-import numpy as np
 import pandas as pd
+import numpy as np
 
 import scipy.stats as stats
 from sklearn.utils.validation import check_random_state
 from sklearn.preprocessing import StandardScaler
 
-def permtest_partial_corr(df, node, col, cov, n_perm=10000, seed=0):
-	"""
-	Same correlation permutation test process as in Netneurotools and NBS toolbox
-	(only change the spearman r into partial correlation spearman r)
-	"""
-	x = df[node].to_numpy()
-	y = df[col].to_numpy()
-	true_corr = partial_corr(x, y, cov)
 
-	abs_true = abs(true_corr)
+def permtest_partial_corr(df, node, col, compare_num, cov, n_perm=10000, seed=0):
+    """
+    Same correlation permutation test process as in Netneurotools and NBS toolbox
+    (only change the spearman r into partial correlation spearman r)
+    """
+    x = df[node].to_numpy()
+    y = df[col].to_numpy()
+    true_corr = partial_corr(x, y, cov)
+    abs_true = abs(true_corr)
 
-	permutations = 1
+    permutations = 1
+    rs = check_random_state(seed)
 
-	rs = check_random_state(seed)
-	for perm in range(n_perm):
-		# permute data and determine whether correlations exceed original
-		ap = x[rs.permutation(len(x))]
-		permutations += abs(partial_corr(ap, y, cov)) >= abs_true
+    max_perm_corr = np.zeros(n_perm)
+    for perm in range(n_perm):
+        ap = y[rs.permutation(len(y))]
+        perm_corr = np.zeros((compare_num,))
+        for i in range(compare_num):
+            if i != df.columns.get_loc(node):
+                perm_corr[i] = abs(partial_corr(df.iloc[:, i].to_numpy(), ap, cov))
+        max_perm_corr[perm] = np.max(perm_corr)
+        permutations += (max_perm_corr[perm] >= abs_true)
 
+    pvals = permutations / n_perm
 
-	pvals = permutations / (n_perm + 1)  # + 1 in denom accounts for true_corr
-
-	return true_corr, pvals
+    return true_corr, pvals
 
 #-------------------------------------------------------------#
 def partial_corr(x, y, control):
@@ -51,7 +54,11 @@ def main():
 	output_file_name = sys.argv[4]
 
 	outcomes_data = pd.read_excel(file_outcomes, header = 0, index_col=0)
-	outcomes_data = outcomes_data.fillna(outcomes_data.mean())
+	outcomes_data = outcomes_data.replace('na', np.nan)
+	for col in outcomes_data.columns:
+		outcomes_data[col] = outcomes_data[col].astype(float)
+		outcomes_data[col].fillna(outcomes_data[col].mean(), inplace=True)
+	#outcomes_data = outcomes_data.fillna(outcomes_data.mean())
 	factors=list(outcomes_data.columns.values)
 
 	predictor_data = pd.read_excel(file_predictor, index_col=0, header=0)
@@ -69,15 +76,17 @@ def main():
 	resultCorrPredictor_df = pd.DataFrame(columns=cols, index=nodes)
 
 	df_test = pd.concat([predictor_data, outcomes_data], axis = 1)
+	print(df_test)
 	features=list(df_test.columns.values)
 	x = df_test.loc[:, features].values
 	x=StandardScaler().fit_transform(x)
 	df_test = pd.DataFrame(x, columns=features)
+	print(df_test)
 	for node in nodes:
 		print(node)
 		for col in factors:
 			print(col)
-			r_val, p_val  = permtest_partial_corr(df_test, node, col, covariate['Lesion_Vol'])
+			r_val, p_val  = permtest_partial_corr(df_test, node, col, len(nodes)-1, covariate['Lesion_Vol'])
 			resultCorrPredictor_df[col+'_r'][node] = r_val
 			resultCorrPredictor_df[col+'_p'][node] = p_val
 
