@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 def permtest_partial_corr(df, node, col, compare_num, cov, n_perm=10000, seed=0):
     """
     Same correlation permutation test process as in Netneurotools and NBS toolbox
-    (only change the spearman r into partial correlation spearman r)
+    
     """
     x = df[node].to_numpy()
     y = df[col].to_numpy()
@@ -47,7 +47,7 @@ def partial_corr(x, y, control):
     return p_cor
 
 def main():
-	print("python perm_corr.py predictor_data_files outcomeFactors_data_file output patient_number")
+	print("python perm_corr.py predictor_data_files outcomeFactors_data_file control_file output_file")
 	file_predictor = sys.argv[1]
 	file_outcomes = sys.argv[2]
 	file_control = sys.argv[3]
