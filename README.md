@@ -37,8 +37,7 @@ There are 5 inputs to put in the command line:
 + excel file with the corresponding behavioural variables (e.g. speech production performance in this case)
 + excel file with control variable (e.g. lesion volume in this case)
 + output file name 
-+ total number of participants
 
 ##### Example command:
-  ###### python part_corr.py networkEfficiency.xlsx behaviour_Speech.xlsx control.xlsx output_file 36
+  ###### python part_corr.py networkEfficiency.xlsx behaviour_Speech.xlsx control.xlsx output_file
 
