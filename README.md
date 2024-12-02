@@ -1,6 +1,6 @@
 # SNE-repo
 ## Analyses of Structural Network Efficiency
-from paper "Beyond focal lesions: Mapping the distributed structural brain networks supporting connected speech in chronic post-stroke aphasia (2024 in process)"
+from paper "Beyond focal lesions: Mapping distributed structural brain networks and connected speech in chronic post-stroke aphasia (2024 in process)"
 
 ### -Environment-
   + python 3.9
