@@ -7,7 +7,7 @@ import dataRead as DR
 
 """
 build_network_graph.py
--- i)build the graph based on AAL structural parcellation
+-- i)build the graph based on AAL structural parcellation (can change to different parcellations)
 -- ii)measure network efficiency
 
 """
@@ -22,7 +22,7 @@ def findNetworkEfficiencyAverage(adj_mat, node_list):
 		for j in range(i+1, len(node_list)):
 			cnt+=1
 			total+=nx.efficiency(G, node_list[i], node_list[j])
-
+	#average within network efficiency
 	network_eff=total/cnt
 	
 	return network_eff
