@@ -1,6 +1,6 @@
 # SNE-repo
 ## Analyses of Structural Network Efficiency
-from paper "Beyond focal lesions: Mapping distributed structural brain networks and connected speech in chronic post-stroke aphasia (2024 in process)"
+from paper "Uncovering Hidden Pathways: Structural Brain Networks Underpinning Connected Speech in Post-Stroke Aphasia" (2024 in process)
 
 ### -Environment-
   + python 3.9
@@ -32,7 +32,7 @@ from paper "Beyond focal lesions: Mapping distributed structural brain networks 
 
 #### Run part_corr.py
 ##### *After running part_corr.py, an output file saving all results (r values and p values) will be generated.
-There are 5 inputs to put in the command line: 
+There are 4 inputs to put in the command line: 
 + excel file with the efficiency variables (e.g. networkEfficiency.xlsx, generated from last step)
 + excel file with the corresponding behavioural variables (e.g. speech production performance in this case)
 + excel file with control variable (e.g. lesion volume in this case)
