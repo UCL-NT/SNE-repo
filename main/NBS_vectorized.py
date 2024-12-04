@@ -58,7 +58,7 @@ def nbs_corr(data_matrix, y_vec, cov, k=10000):
     true_z = np.arctanh(true_r)
     rs = check_random_state(0)
     # Permutation
-    permutation = 1
+    null_dist = 1
     pvals = np.zeros(n)
     for j in range(n):
         ap = data_matrix[j, :]
@@ -66,10 +66,10 @@ def nbs_corr(data_matrix, y_vec, cov, k=10000):
             perm_x = ap[rs.permutation(len(ap))]
             perm_y = y_vec[rs.permutation(len(y_vec))]
             perm_r = partial_corr(perm_x, perm_y,cov)
-            permutation += np.arctanh(np.abs(perm_r)) >= np.abs(true_z[j])
+            null_dist += np.arctanh(np.abs(perm_r)) >= np.abs(true_z[j])
         
-        pvals[j] = permutation/k
-        permutation = 1
+        pvals[j] = null_dist/k
+        null_dist = 1
     
     return pvals, true_r
 
