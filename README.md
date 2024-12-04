@@ -10,7 +10,7 @@ from paper "Uncovering Hidden Pathways: Structural Brain Networks Underpinning C
   + Functional-defined network: excel file including the functional-defined networks and corresponding AAL parcels (see network_AALindex.xlsx)
   + Behavioural scores: excel file including all tested behvaioural scores of each participant (see behaviour_Speech.xlsx)
   + Lesion volume: excel file including lesion volume of each participant (see control.xlsx)
-  + All quantified outputs from Lesion Quantification Toolkit under Matlab
+  + All quantified outputs from Lesion Quantification Toolkit under Matlab (we provide ours in Test_Batch_AAL folder)
 
 ### Steps:
 1. Put three python files (build_network_graph.py, part_corr.py, data_read.py) together in a folder
