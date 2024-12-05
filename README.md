@@ -2,6 +2,8 @@
 ## Analyses of Structural Network Efficiency
 from paper "Uncovering Hidden Pathways: Structural Brain Networks Underpinning Connected Speech in Post-Stroke Aphasia" (2024 in process under review)
 
+If you use any of the data in this repository, please cite the corresponding research paper, reference the repository
+
 ### -Environment-
   + python 3.9
   + installed packages: numpy, scipy, pandas, sklearn, networkx
