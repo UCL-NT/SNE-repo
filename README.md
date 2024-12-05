@@ -19,7 +19,8 @@ If you use any of the data in this repository, please cite the corresponding res
 2. Run command line through terminal in the same folder (i.e. where you put all the python files) 
     1. run build_network_graph.py
     2. run part_corr.py
-Please see the below example command-
+
+-Please see the below example command-
 #### Run build_network_graph.py
 ##### *After running build_network_graphy.py, an output file networkEfficiency.xlsx will be generated in the same folder.
   There are 4 inputs to put in the command line: 
