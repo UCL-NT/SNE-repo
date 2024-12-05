@@ -13,11 +13,11 @@ from paper "Uncovering Hidden Pathways: Structural Brain Networks Underpinning C
   + All quantified outputs from Lesion Quantification Toolkit under Matlab (we provide ours in Test_Batch_AAL folder)
 
 ### Steps:
-1. Put three python files (build_network_graph.py, part_corr.py, data_read.py) together in a folder
+1. Put python files together in the same folder, here you can just go to main folder
 2. Run command line through terminal in the same folder (i.e. where you put all the python files) 
     1. run build_network_graph.py
     2. run part_corr.py
-
+Please see the below example command-
 #### Run build_network_graph.py
 ##### *After running build_network_graphy.py, an output file networkEfficiency.xlsx will be generated in the same folder.
   There are 4 inputs to put in the command line: 
@@ -27,7 +27,7 @@ from paper "Uncovering Hidden Pathways: Structural Brain Networks Underpinning C
   + threshold of residual connections
 
 ##### Example command:
-  ###### python build_network_graph.py /MATLAB/Lesion_Quantification_Toolkit/Test_Outputs aal_parcels.xlsx 36 70.0
+  ###### python build_network_graph.py ../Test_Batch_AAL ../networkEff_AALindex.xlsx 36 70.0
   
 
 #### Run part_corr.py
@@ -39,5 +39,5 @@ There are 4 inputs to put in the command line:
 + output file name 
 
 ##### Example command:
-  ###### python part_corr.py networkEfficiency.xlsx behaviour_Speech.xlsx control.xlsx output_file
+  ###### python part_corr.py networkEfficiency.xlsx ../behaviour_Speech.xlsx ../control.xlsx output_file
 
