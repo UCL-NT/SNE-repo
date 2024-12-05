@@ -1,6 +1,6 @@
 # SNE-repo
 ## Analyses of Structural Network Efficiency
-from paper "Uncovering Hidden Pathways: Structural Brain Networks Underpinning Connected Speech in Post-Stroke Aphasia" (2024 in process)
+from paper "Uncovering Hidden Pathways: Structural Brain Networks Underpinning Connected Speech in Post-Stroke Aphasia" (2024 in process under review)
 
 ### -Environment-
   + python 3.9
