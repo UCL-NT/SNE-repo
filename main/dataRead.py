@@ -27,18 +27,15 @@ def read_mat_file(file_root_dir, patient_code, data_dir, file_name):
 #return NxNxP ndarray
 def loadSparedConnectMatrix(mat_file_root_dir, patient_num):
 	data_dir = 'Parcel_Disconnection'
-	file_name = '_AAL_percent_parcel_spared_SC.mat'
-	#file_name = '_Yeo7100_percent_parcel_spared_SC.mat'
+	file_name = '_Yeo7100_percent_parcel_spared_SC.mat'
 
 	#for loop to read all 
 	for i in range(1, patient_num+1):
 		#different patient code
 		if i < 10:
-			patient_code = 'p00'+str(i)+'_'
-			#patient_code = 'aal_rp00'+str(i)+'_'
+			patient_code = 'aal_rp00'+str(i)+'_'
 		else:
-			patient_code =  'p0'+str(i)+'_'
-			#patient_code =  'aal_rp0'+str(i)+'_'
+			patient_code =  'aal_rp0'+str(i)+'_'
 
 		mat_contents = read_mat_file(mat_file_root_dir, patient_code, data_dir, file_name)
 		spared_con_matrix = mat_contents['pct_spared_sc_matrix']
